@@ -8,9 +8,9 @@ class Node{
     /*CONSTRUCTOR*/
     function __construct(){
         $this -> name = 'undefined';
-        $this -> researchers = new_array();
-        $this -> admins = new_array();
-        $this -> articles = new_array();
+        $this -> researchers = array();
+        $this -> admins = array();
+        $this -> articles = array();
     }
     /*SETTERS*/
     function set_name($name){

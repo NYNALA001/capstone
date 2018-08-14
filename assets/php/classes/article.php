@@ -5,6 +5,7 @@
         var $authors;
         var $date;
         var $abstract;
+        var $link;
 
         /*CONSTRUCTOR*/
         function __construct(){
@@ -13,6 +14,7 @@
             $this -> authors = array();
             $this -> date = new DateTime();
             $this -> abstract = 'New article abstract';
+            $this -> link = "";
 
         }
         /*SETTERS*/
@@ -36,6 +38,9 @@
         function set_abstract($abstract){
             $this->abstract = $abstract;
         }
+        function set_link($link){
+            $this->link = $link;
+        }
         /*GETTERS*/
         function get_id(){
             return $this->id;
@@ -51,6 +56,9 @@
         }
         function get_abstract(){
             return $this->abstract;
+        }
+        function get_link($link){
+            return $this->link;
         }
 
         /*functions*/

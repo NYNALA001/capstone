@@ -91,7 +91,7 @@ class Node_Administrator extends Researcher{
     /*functions*/
     function get_reports(){
         //returns array with all researchers and research papers from the node the adminstrator administrates.
-        $report = new_array();
+        $report = array();
         //all researchers in the node
         $researchers = parent::get_node()->get_researchers();
         //all articles in the node

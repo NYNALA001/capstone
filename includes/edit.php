@@ -14,6 +14,7 @@ if (isset($_GET['edit'])){
 if(isset($_POST['submit_edit'])){
     $newTitle = $_POST['title'];
     $content = $_POST['content'];
+     //mysqli_real_escape_string() 
     // $query = $pdo->prepare("UPDATE `articles` SET (`article_title`, `article_content`) VALUE ($newTitle,$content) WHERE `article_id` = '$edit';");
     // $query->bindValue(1,$newTitle);
     // $query->bindValue(2,$content);
