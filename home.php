@@ -21,10 +21,10 @@
    $rcounter2 = 0; //Counter for logged in table
 
 
-   if (isset($_SESSION['logged_in'])){
+   if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
        //Check if Logged in!!
        $user = $_SESSION['name'];
-       ?> 
+       ?>
 <div style="float: right;">
    <table cellspacing="30">
       <tr>

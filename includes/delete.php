@@ -10,8 +10,8 @@ if (isset($_GET['edit'])){
     $edit = $_GET['edit'];
     $data = $article->fetch_data($edit);
 
-    $query = $pdo->prepare("DELETE FROM `articles` WHERE article_id = '$edit';");
+    $query = $pdo->prepare("DELETE FROM `articles` WHERE `article_id` = '$edit';");
     $query->execute();
-header('location: ../home.php');
+header('location: ../');
 }
 ?>
