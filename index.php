@@ -12,7 +12,7 @@
     <?php include './assets/php/header.php';?>
     <h1>Welcome <?php echo $user->get_name();?></h1>
     <div>
-    <b><a href="includes/add.php">Add article &lowast;</a></b>
+    <!--<b><a href="includes/add.php">Add article &lowast;</a></b>-->
     <br><br>
     <table style="width:100%">
   <tr>

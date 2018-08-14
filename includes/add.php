@@ -31,5 +31,7 @@ header('location: ../');
       
       <input type="submit" Value="Add"/>
    </form>
+
+<a href="..">&larr; Back</a>
           
     

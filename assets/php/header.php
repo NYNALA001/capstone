@@ -23,6 +23,7 @@ include_once './assets/php/session.php';
         }
     ?>
     <a href='./search.php'>Search</a>
+    <div style="float: right">
     <?php
         if ($_SESSION['logged_in'] == 'false'){
             echo "
@@ -33,4 +34,5 @@ include_once './assets/php/session.php';
                 </form>
             ";}
     ?>
+        </div>
 </div>

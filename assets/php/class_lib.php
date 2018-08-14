@@ -1,6 +1,6 @@
 <?php
-    include 'classes/person.php';
-    include 'classes/node.php';
-    include 'classes/article.php';
+    include_once 'classes/person.php';
+    include_once 'classes/node.php';
+    include_once 'classes/article.php';
     
 ?>

@@ -22,7 +22,7 @@
     <th style="text-align: left;">Date Posted</th> 
     <th style="text-align: left;"></th>
   </tr>
-  
+  <b><a href="includes/add.php">Add article &lowast;</a></b>
  <?php 
     foreach ($articles as $article):
         ?>
