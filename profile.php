@@ -23,6 +23,7 @@
     <th style="text-align: left;"></th>
   </tr>
   <b><a href="includes/add.php">Add article &lowast;</a></b>
+    <br><br>
  <?php 
     foreach ($articles as $article):
         ?>

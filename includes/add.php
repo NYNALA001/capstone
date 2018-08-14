@@ -20,7 +20,7 @@ $query = $pdo->prepare("INSERT INTO articles (article_title, article_content, ar
     $query->bindValue(4,time());
     
         $query->execute();
-header('location: ../');
+header('location: ../profile.php');
 }
 ?>
 <form action= "" method = "post">
