@@ -13,11 +13,11 @@ if(isset($_GET['id'])){
 
 <html>
 <head>
-<title>CBIB</title>
+<title>Home</title>
 </head>
 <body>
     <div class ="container">
-    <a href="home.php" id = "logo">CBIB</a>
+    <a href="index.php" id = "logo">CBIB</a>
     <h4>
         <?php echo $data['article_title'];?>
         - <small>posted <?php echo date('l jS',$data['article_timestamp']) ?></small>
