@@ -20,18 +20,18 @@ $query = $pdo->prepare("INSERT INTO articles (article_title, article_content, ar
     $query->bindValue(4,time());
     
         $query->execute();
-header('location: ../profile.php');
+header('location: ../dashboard.php');
 }
 ?>
 <form action= "" method = "post">
       Title:<input type="text" name="title" placeholder="Title"/><br><br>
-    Author: <input type="text" name="author" placeholder="Author"/><br>
+    Co-authors: <input type="text" name="author" placeholder="Co-authors"/><br>
     <br><br>
-    content:<textarea rows="15" cols="20" name="content"> </textarea><br><br>
+    Abstract:<textarea rows="15" cols="20" name="content"></textarea><br><br>
       
       <input type="submit" Value="Add"/>
    </form>
 
-<a href="..">&larr; Back</a>
+<a href="../dashboard.php">&larr; Back</a>
           
     

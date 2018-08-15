@@ -23,7 +23,7 @@ if(isset($_POST['submit_edit'])){
     $sql = "UPDATE `articles` SET `article_title` = '$newTitle', `article_content` = '$content' WHERE `article_id` = '$edit'";
     mysqli_query($dbc, $sql);
         
-header('location: ../');
+header('location: ../dashboard.php');
 }
 ?>
 <form action= "" method = "post">
@@ -35,3 +35,5 @@ header('location: ../');
           
       <?php    }
 ?>
+
+<a href="../dashboard.php">&larr; Back</a>

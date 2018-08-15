@@ -15,7 +15,7 @@ include_once './assets/php/session.php';
             echo "
             <a href='./profile.php'>Profile</a> ";
             
-            if (($user_permission == 2) || ($user_permission == 3) ){
+            if (($user_permission == 1) || ($user_permission == 2) || ($user_permission == 3) ){
             echo " <a href='./dashboard.php'>Dashboard</a> ";} ?>
             <div style="float: right">
             <?php echo "<a href='./logout.php'>Logout</a>";?>

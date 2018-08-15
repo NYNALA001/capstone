@@ -16,6 +16,7 @@ if(isset($_GET['id'])){
 <title>Home</title>
 </head>
 <body>
+    
     <div class ="container">
     <a href="index.php" id = "logo">Home</a>
     <h4>

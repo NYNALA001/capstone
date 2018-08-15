@@ -35,7 +35,8 @@
    <br>
     <br>
     Name: <?php echo $user->get_name();?> <br>
-    Surname: <?php echo $user->get_surname();?>
+    Surname: <?php echo $user->get_surname();?> <br>
+    Email: <?php echo $user->get_email();?>
     
     <br>
     <br>
