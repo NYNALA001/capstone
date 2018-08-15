@@ -7,7 +7,7 @@
 <body>
     <?php include './assets/php/header.php';?>
     
-    <?php if($user_permission <1){
+    <?php if($user_permission <0){
         echo '<script>
         window.location = "index.php";
         </script>';

@@ -10,7 +10,7 @@ class Person{
         $this->name = "";
         $this->surname = "";
         $this->email = "";
-        $this->permission = 0;
+        $this->permission = -1;
     }
     
 
