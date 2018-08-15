@@ -17,7 +17,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     <div class ="container">
-    <a href="index.php" id = "logo">CBIB</a>
+    <a href="index.php" id = "logo">Home</a>
     <h4>
         <?php echo $data['article_title'];?>
         - <small>posted <?php echo date('l jS',$data['article_timestamp']) ?></small>
