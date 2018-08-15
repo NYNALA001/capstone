@@ -24,12 +24,12 @@ if(isset($_GET['id'])){
         
         </h4>
         <p><?php echo $data['article_content'] ?></p>
-        <a href="home.php">&larr; Back</a>
+        <a href="index.php">&larr; Back</a>
     </div>
 </body>
 </html>
     <?php
 } else {
-    header('Location: home.php');
+    header('Location: index.php');
     exit();
 }?>

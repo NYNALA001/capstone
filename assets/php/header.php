@@ -16,13 +16,16 @@ include_once './assets/php/session.php';
             <a href='./profile.php'>Profile</a> ";
             
             if (($user_permission == 2) || ($user_permission == 3) ){
-            echo " <a href='./dashboard.php'>Dashboard</a> ";}
-            
-            echo "<a href='./logout.php'>Logout</a>";
-            
+            echo " <a href='./dashboard.php'>Dashboard</a> ";} ?>
+            <div style="float: right">
+            <?php echo "<a href='./logout.php'>Logout</a>";?>
+            </div>
+            <?php
         }
     ?>
-    <a href='./search.php'>Search</a>
+   
+    
+    <!--<a href='./search.php'>Search</a>-->
     <div style="float: right">
     <?php
         if ($_SESSION['logged_in'] == 'false'){
