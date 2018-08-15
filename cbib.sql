@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 11, 2018 at 12:22 PM
+-- Generation Time: Aug 15, 2018 at 11:00 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `article_content` text NOT NULL,
   `article_timestamp` int(11) NOT NULL,
   PRIMARY KEY (`article_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `articles`
@@ -44,7 +44,25 @@ CREATE TABLE IF NOT EXISTS `articles` (
 
 INSERT INTO `articles` (`article_id`, `article_title`, `article_author`, `article_content`, `article_timestamp`) VALUES
 (1, 'Number one article', 'admin', 'I am currently learning PHP for capstone project!!', 1533499876),
-(2, ' Number Two article', 'Alan', 'I\'ve been a liar, been a thief\r\nBeen a lover, been a cheat\r\nAll my sins need holy water, feel it washing over me\r\nWell, little one, I don\'t want to admit to something\r\nIf all it\'s gonna cause is pain\r\nTruth and my lies right now are falling like the rain\r\nSo let the river run', 15334998);
+(2, '', 'Alan', '', 15334998),
+(6, 'Third', 'Keegn', ' Working now with coders.', 1534277926),
+(7, 'Something', 'ret', 'Something good is cooking ', 1534278070);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nodes`
+--
+
+DROP TABLE IF EXISTS `nodes`;
+CREATE TABLE IF NOT EXISTS `nodes` (
+  `node_id` int(11) NOT NULL AUTO_INCREMENT,
+  `node_name` varchar(255) NOT NULL,
+  `node_description` text NOT NULL,
+  `node_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dp_url` varchar(255) NOT NULL,
+  PRIMARY KEY (`node_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,16 +78,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_surname` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
+  `node_id` int(11) NOT NULL,
+  `date_joined` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_permission`, `user_name`, `user_surname`, `user_email`, `user_password`) VALUES
-(1, 3, 'admin', 'Surname', 'admin@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99'),
-(2, 1, 'Alan', 'Nyanhete', 'alanabove@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99');
+INSERT INTO `users` (`user_id`, `user_permission`, `user_name`, `user_surname`, `user_email`, `user_password`, `node_id`, `date_joined`) VALUES
+(1, 3, 'admin', 'Surname', 'admin@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
+(2, 1, 'Alan', 'Nyanhete', 'alanabove@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
+(4, 3, 'Keegan', 'Naidoo', 'keegan@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
