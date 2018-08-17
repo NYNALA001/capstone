@@ -18,12 +18,13 @@
 
         }
         /*SETTERS*/
-        function set_details($id, $title, $authors, $abstract, $date){
+        function set_details($id, $title, $authors, $abstract, $date, $url){
             $this->id = $id;
             $this->title = $title;
             array_push($this->authors,$authors);
             $this->date = $date;
             $this->abstract = $abstract;
+            $this -> link = $url;
         }
         function set_title($title){
             $this->title = $title;

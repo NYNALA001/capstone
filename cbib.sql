@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2018 at 02:59 PM
+-- Generation Time: Aug 17, 2018 at 04:48 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -42,16 +42,7 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`article_id`, `article_title`, `article_author`, `article_content`, `article_timestamp`, `article_url`) VALUES
-(1, 'Number one article', 'admin', 'I am currently learning PHP for capstone project!!', 1533499876, ''),
-(2, 'Article 3', 'Alan', 'some content here bro', 15334998, ''),
-(6, 'Third', 'Keegn', ' Working now with coders.', 1534277926, ''),
-(7, 'Something', 'ret', 'Something good is cooking ', 1534278070, ''),
-(9, 'Test 2', '', 'Hello world', 0, ''),
-(10, 'Test 2', 'alanabove@gmail.com', 'Hello world', 0, ''),
-(11, 'Article 15', 'alanabove@gmail.com', 'Test', 1534336380, ''),
-(12, 'Atificial intelligence in Africa', 'alanabove@gmail.com', 'Written by Daniel M', 1534336498, ''),
-(14, 'Uprising', ',alanabove@gmail.com,mabasodaniel@gmail.com', 'The uprising is here', 1534337466, ''),
-(15, 'The second uprising', 'alanabove@gmail.com,camadams@gmail.com', 'We are back. This time we are way better and faster!', 1534337764, '');
+(23, 'Artificial Intelligence - the uprising', 'alanabove@gmail.com', 'Artificial intelligence is on the rise. Beware! For real', 1534513957, './assets/uploads/CV as at 18_11_2016-.pdf');
 
 -- --------------------------------------------------------
 
@@ -89,10 +80,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_permission`, `user_name`, `user_surname`, `user_email`, `user_password`, `node_id`, `date_joined`) VALUES
-(1, 3, 'admin', 'Surname', 'admin@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
+(1, 2, 'admin', 'Surname', 'admin@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
 (2, 1, 'Alan', 'Nyanhete', 'alanabove@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
 (4, 3, 'Keegan', 'Naidoo', 'keegan@gmail.com', '$2y$11$DQDasNeltcn0gG430OLS8ONXyi54qL68yBp8vXYrA.XcmB4OFdn1C', 0, '2018-08-14 21:45:58'),
-(5, 0, 'Daniel', 'Mabaso', 'mabasodaniel@gmail.com', '$2y$11$MZynkpYVDLUgd3Z9nhKdP.5prhg4twwXCsa0FNTLz3QcrgEp/DCg2', 0, '2018-08-15 11:22:37');
+(5, 1, 'Daniel', 'Mabaso', 'mabasodaniel@gmail.com', '$2y$11$MZynkpYVDLUgd3Z9nhKdP.5prhg4twwXCsa0FNTLz3QcrgEp/DCg2', 0, '2018-08-15 11:22:37');
 
 --
 -- Indexes for dumped tables
@@ -124,7 +115,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `nodes`

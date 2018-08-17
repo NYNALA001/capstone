@@ -10,7 +10,7 @@
     if (isset($articles_from_db)){
         while($row = mysqli_fetch_row($articles_from_db)){
             $art = new Article();
-            $art->set_details($row[0],$row[1],$row[2],$row[3],$row[4]);
+            $art->set_details($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
             array_push($articles, $art);
         }
     }

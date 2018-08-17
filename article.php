@@ -24,7 +24,12 @@ if(isset($_GET['id'])){
         - <small>posted <?php echo date('l jS',$data['article_timestamp']) ?></small>
         
         </h4>
-        <p><?php echo $data['article_content'] ?></p>
+        <p><?php echo $data['article_content'] ?>
+        <br><br>
+            <a href="./<?php echo $data['article_url'];?>" target="_blank">Preview</a> 
+            <a href="<?php echo $data['article_url'];?>" download>Download</a>
+        </p>
+
         <a href="index.php">&larr; Back</a>
     </div>
 </body>

@@ -12,6 +12,6 @@ if (isset($_GET['edit'])){
 
     $query = $pdo->prepare("DELETE FROM `articles` WHERE `article_id` = '$edit';");
     $query->execute();
-header('location: ../profile.php');
+header('location: ../dashboard.php');
 }
 ?>
