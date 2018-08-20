@@ -5,7 +5,6 @@ include_once '../assets/php/connection.php';
 include_once '../assets/php/classes/article.php';
 
 
-<?php include './assets/php/header.php';?>
 
 
 

@@ -12,6 +12,7 @@
 
     <body>
         <?php include './assets/php/header.php';?>
+
             <div>
 
                 <br>
@@ -28,13 +29,22 @@
                             <input type="text" name="search" placeholder="article name">
                             <input type="submit" name="action" value="Search">
                         </form>
+                        <form method="GET" action="" id="searchform">
+                            <select name="filter">
+                                <option value="">Researchers</option>
+                                <option value="">Nodes</option>
+                                <option value="">Publication</option>
+
+                            </select>
+                        </form>
 
                         <?php
        $searchcounter = 0;
        if(isset($_GET['search'])){
            $search = $_GET['search'];
-
+            echo "<br><br><b>Results</b><br>";
           if(strlen($search) >0){ 
+
               foreach ($articles as $article){
            if(strpos(strtolower($article->get_title()),strtolower($search)) !== false){ $searchcounter++
                ?>

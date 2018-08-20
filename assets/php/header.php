@@ -4,6 +4,9 @@ include_once './assets/php/session.php';
 
 <div id="header-panel">
     <a href='./'>HOME</a>
+    <a href='./'>PEOPLE</a>
+    <a href='./'>NODES</a>
+    <a href='./'>PUBLICATIONS</a>
     <?php
     if (isset($_SESSION['user'])){
         $user = unserialize($_SESSION['user']); 

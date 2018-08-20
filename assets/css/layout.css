@@ -1,7 +1,7 @@
 body, html{
     width: calc(100% - 100px * 2);
     height: calc(100% - 110px);
-    overflow-y: hidden;
+    overflow-x: hidden;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -48,14 +48,15 @@ input{
     color: #ccc;
     line-height: 90px;
 }
-
+#header-panel a{
+    font-size: 11pt;
+}
 #footer-panel{
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
+    margin-top: 50px;
+    position: relative;
     height: 150px;
     width: 100%;
-    background-color: rgb(86, 107, 117);
+    background-color: rgb(62, 77, 83);
 }
 @media only screen and (max-width: 360px){
     
