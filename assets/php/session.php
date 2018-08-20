@@ -6,15 +6,14 @@
         
         //INITIALIZE SESSION AND DEFAULT SESSION VARIABLES
         $_SESSION['logged_in'] = 'false';
-        $u = new Person();
-        $_SESSION['user'] = serialize($u);
+        $user = new Person();
+        $_SESSION['user'] = serialize($user);
     }
     else{
         if($_SESSION['logged_in']){
             $user = $_SESSION['user'];
             $user = unserialize($user);
         }
-
     }
 
     

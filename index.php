@@ -19,7 +19,7 @@
                 <br>
                 <table style="width:100%">
                     <tr>
-                        <th style="text-align: left;">Title</th>
+                        <th style="text-align: left;">Publication</th>
                         <th style="text-align: left;">Date Posted</th>
                         <th style="text-align: left;"></th>
                     </tr>

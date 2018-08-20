@@ -12,8 +12,8 @@ if (isset($_GET['edit'])){
     $data = $article->fetch_data($edit);
 
 if(isset($_POST['submit_edit'])){
-    $newTitle = $_POST['title'];
-    $content = $_POST['content'];
+    $newTitle = mysqli_real_escape_string($dbc,htmlentities($_POST['title']));
+    $content = mysqli_real_escape_string($dbc,htmlentities($_POST['content']));
      //mysqli_real_escape_string() 
     // $query = $pdo->prepare("UPDATE `articles` SET (`article_title`, `article_content`) VALUE ($newTitle,$content) WHERE `article_id` = '$edit';");
     // $query->bindValue(1,$newTitle);
@@ -58,8 +58,9 @@ header('location: ../dashboard.php');
 ?>
 <form action= "" method = "post" enctype="multipart/form-data">
       Title:<input required type="text" name="title" value="<?php echo $data['article_title']; ?>"/><br><br><br>
-    Abstract:<textarea reuired rows="15" cols="20" name="content"><?php echo $data['article_content']; ?></textarea><br><br>
-      Change Article: <input type="file" name="pdf"><br><br>
+    Abstract:<textarea reuired rows="15" cols="20" name="content"><?php echo htmlentities($data['article_content']); ?></textarea><br><br>
+    Current file: <a target="_blank" href="../<?php echo $data['article_url']?>"><?php echo substr($data['article_url'],17); ?></a><br><br>
+      New file: <input type="file" name="pdf"><br><br>
       <input type="submit" name="submit_edit" Value="Save"/>
 </form>
           

@@ -5,7 +5,7 @@
 <h2>My Articles</h2>
     <br>  <table style="width:100%">
   <tr>
-    <th style="text-align: left;">Title</th>
+    <th style="text-align: left;">Publication</th>
     <th style="text-align: left;">Date Posted</th> 
     <th style="text-align: left;"></th>
   </tr>
@@ -28,7 +28,7 @@
       $count++;
         ?>
        <tr>
-        <td><?php echo $article->get_title(); ?></td>
+        <td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?></a></td>
         <td><small><?php echo date('Y-m-d',$article->get_date()); ?></small></td> 
         <td><a href=<?php $i = $article->get_id(); echo "./includes/edit.php?edit=$i";?>>Edit</a></td>
         <td><a href=<?php $i = $article->get_id(); echo "./includes/delete.php?edit=$i";?>>Delete</a></td>

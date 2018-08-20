@@ -15,7 +15,7 @@ if(isset($_POST['title'],$_POST['content'])){
   $content = $_POST['content'];
   $url = "";
   
-  $target_dir = "./assets/uploads/";
+  $target_dir = "../assets/uploads/";
   $target_file = $target_dir . basename($_FILES["pdf"]["name"]);
   $uploadOk = 1;
 
@@ -27,9 +27,8 @@ if(isset($_POST['title'],$_POST['content'])){
     else{
       $result = move_uploaded_file($_FILES['pdf']['tmp_name'], $target_file);
       if ($result == 1 ){
-      //echo "upload complete.<br>File uploaded to $target_file";
-      $url = substr($target_file, 1);
-    }
+        $url = substr($target_file, 1);
+      }
     }
   }
   $article -> set_details(NULL,$newTitle, $user, $content, time(), $url);
