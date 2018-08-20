@@ -1,0 +1,74 @@
+body, html{
+    width: calc(100% - 100px * 2);
+    height: calc(100% - 110px);
+    overflow-y: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 110px;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: #2b2b2b;
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+input{
+    padding: 3px;
+    border: 0px;
+    border: 1px solid #bbb;
+}
+#profile-pic{
+    width: 150px;
+    height: 150px;
+    background-color: #7b7b7b;
+}
+#header-panel{
+    height: 90px;
+    width: calc(100% - 200px);
+    padding-left: 100px; 
+    padding-right: 100px; 
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(38, 110, 143);
+    color: #ccc;
+    line-height: 90px;
+}
+
+#footer-panel{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 150px;
+    width: 100%;
+    background-color: rgb(86, 107, 117);
+}
+@media only screen and (max-width: 360px){
+    
+}
+@media only screen and (min-width: 360px) and (max-width: 450px){
+
+}
+@media only screen and (min-width: 450px) and (max-width: 736px){
+
+}
+@media only screen and (min-width: 736px) and (max-width: 1080px){
+
+}
+@media only screen and (min-width: 1080px){
+
+}

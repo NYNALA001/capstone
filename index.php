@@ -12,7 +12,6 @@
 
     <body>
         <?php include './assets/php/header.php';?>
-            <h1>Welcome <?php echo $user->get_name();?></h1>
             <div>
 
                 <br>

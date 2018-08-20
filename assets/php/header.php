@@ -2,8 +2,8 @@
 include_once './assets/php/session.php';
 ?>
 
-<div>
-    <a href='./'>Home</a>
+<div id="header-panel">
+    <a href='./'>HOME</a>
     <?php
     if (isset($_SESSION['user'])){
         $user = unserialize($_SESSION['user']); 
@@ -13,12 +13,14 @@ include_once './assets/php/session.php';
     }
         if (isset($_SESSION) && $_SESSION['logged_in'] == 'true'){
             echo "
-            <a href='./profile.php'>Profile</a> ";
+            <a href='./profile.php'>PROFILE</a> ";
             
             if (($user_permission == 1) || ($user_permission == 2) || ($user_permission == 3) ){
-            echo " <a href='./dashboard.php'>Dashboard</a> ";} ?>
+            echo " <a href='./dashboard.php'>DASHBOARD</a> ";} ?>
             <div style="float: right">
-            <?php echo "<a href='./logout.php'>Logout</a>";?>
+            <?php 
+                $n = $user->get_name();
+            echo "Hi, <a href='profile.php'>$n</a> | <a href='./logout.php'>LOGOUT</a>";?>
             </div>
             <?php
         }

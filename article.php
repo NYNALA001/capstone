@@ -17,6 +17,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
     
+<?php include './assets/php/header.php';?>
     <div class ="container">
     <a href="index.php" id = "logo">Home</a>
     <h4>

@@ -3,6 +3,7 @@ include_once('../assets/php/connection.php');
 include_once('connection.php');
 include_once('article.php');
 
+   include './assets/php/header.php';
 $article = new Article;
 
 
