@@ -4,10 +4,11 @@ include_once './assets/php/session.php';
 
 <div id="header-panel">
     <a href='./'>HOME</a>
-    <a href='./'>PEOPLE</a>
-    <a href='./'>NODES</a>
-    <a href='./'>PUBLICATIONS</a>
-    <?php
+    <a href='./people.php'>PEOPLE</a>
+    <a href='./nodes.php'>NODES</a>
+    <a href='./publications.php'>PUBLICATIONS</a>
+        <a href='./about.php'>ABOUT</a>
+        <?php
     if (isset($_SESSION['user'])){
         $user = unserialize($_SESSION['user']); 
         $user_permission = $user->get_permission();

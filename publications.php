@@ -5,28 +5,13 @@ include './assets/php/session.php';
 <html lang="en">
 
 <head>
-<title>CAIR - Research</title>
+<title>Pubs</title>
 <?php include './assets/php/dependencies.php';
 ?>
 </head>
 
 <body>
 	<?php include './assets/php/header.php';?>
-
-	<br>
-
-	<div>
-		About Us <br> <br> The Centre for Artificial Intelligence Research
-		(CAIR) is a South African distributed Centre of Excellence that
-		conducts foundational, directed and applied research into various
-		aspects of Artificial Intelligence. CAIR has nodes at five South
-		African universities: the University of Cape Town, University of
-		KwaZulu-Natal, North-West University, University of Pretoria and
-		Stellenbosch University, and is coordinated and managed by the Meraka
-		Institute at the Council for Scientific and Industrial Research. <a
-			href="about.php">read more...</a>
-
-	</div>
 
 	<div>
 
@@ -94,7 +79,6 @@ include './assets/php/session.php';
 			<br>
 			<br>
 			<?php 
-			$count = 0;
 			foreach ($articles as $article):
 			?>
 			<tr>
@@ -102,40 +86,13 @@ include './assets/php/session.php';
 				<td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?>
 				</a></td>
 				<td><small><?php echo date("Y-m-d",$article->get_date());?> </small>
-					<?php $count++;	if ($count >= 5) break;?>
+				
 				</td>
 			</tr>
 
 			<?php endforeach;?>
-
 		</table>
-
-		<a href="publications.php">see more...</a> 
-		
-		<br> <br> 
-		
-		CAIR Members 
-		
-		<br>
-		<?php 
-
-		$count = 0;
-		foreach ($people as $person):
-		?>
-		<tr>
-			<td><?php
-			if ($count < 5){
-				$name = $person->get_name();
-				$surname = $person->get_surname();
-				if (!($name == "admin")) echo $name." ".$surname;
-			}
-			?> <br>
-			</td>
-		</tr>
-
-		<?php endforeach;?>
-		<a href="people.php">see more...</a> <br> <br>
-
+		<br> <br>
 
 		<?php include './assets/php/footer.php';?>
 
