@@ -11,7 +11,6 @@
         window.location = "index.php";
         </script>';
     }?>
-    <h1>Dashboard</h1>
     <?php 
         switch ($user_permission){
             case 1:
@@ -32,6 +31,5 @@
         }
     ?>
     
-    <?php include './assets/php/footer.php';?>
 </body>
 </html>

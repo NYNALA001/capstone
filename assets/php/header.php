@@ -3,7 +3,8 @@ include_once './assets/php/session.php';
 ?>
 
 <div id="header-panel">
-    <a href='./'>HOME</a>
+    <a href="./"><div class="float-left"><img src="./assets/images/cair-logo.png" alt="CAIR logo" class="header-logo"></div></a>
+    <div class="float-left"><a href='./'>HOME</a>
     <a href='./people.php'>PEOPLE</a>
     <a href='./nodes.php'>NODES</a>
     <a href='./publications.php'>PUBLICATIONS</a>
@@ -16,11 +17,13 @@ include_once './assets/php/session.php';
         $user_permission = 0;
     }
         if (isset($_SESSION) && $_SESSION['logged_in'] == 'true'){
+            if ($user_permission == 0 || $user_permission == 4){
             echo "
-            <a href='./profile.php'>PROFILE</a> ";
+            <a href='./profile.php'>PROFILE</a> ";}
             
             if (($user_permission == 1) || ($user_permission == 2) || ($user_permission == 3) ){
             echo " <a href='./dashboard.php'>DASHBOARD</a> ";} ?>
+            </div>
             <div style="float: right">
             <?php 
                 $n = $user->get_name();
@@ -28,7 +31,12 @@ include_once './assets/php/session.php';
             </div>
             <?php
         }
+        else{
+            echo "</div>";
+        }
+
     ?>
+
    
     
     <!--<a href='./search.php'>Search</a>-->

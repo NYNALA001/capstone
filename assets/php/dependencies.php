@@ -14,7 +14,7 @@
 
 <!--Links-->
 <link rel='stylesheet' href='./assets/css/master.css'>
-<link rel="icon" type="image/png" href="./assets/images/favicon.jpg">
+<link rel="icon" type="image/png" href="./assets/images/favicon.png">
 
 <!--Open Graph Meta Data-->
 <meta property="og:url" content=""/>
@@ -24,4 +24,4 @@
 <meta property="og:image" content=""/>
 
 <!--Scripts-->
-<script type="text/javascript" src="./assets/js/main.js"></script>
+<script type="text/javascript" src="./assets/js/behavior.js"></script>

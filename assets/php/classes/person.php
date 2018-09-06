@@ -4,12 +4,14 @@ class Person{
     var $surname;
     var $email;
     var $permission;
+    var $dp_url;
 
     /*CONSTRUCTOR*/
     function __construct(){
         $this->name = "";
         $this->surname = "";
         $this->email = "";
+        $this->dp_url = "";
         $this->permission = -1;
     }
     
@@ -32,6 +34,9 @@ class Person{
     function set_email($email){
         $this -> email = $email;
     }
+    function set_dp_url($url){
+        $this -> dp_url = $dp_url;
+    }
 
     function set_permission($permission){
         $this -> permission = $permission;
@@ -48,6 +53,10 @@ class Person{
 
     function get_email(){
         return $this -> email;
+    }
+
+    function get_dp_url(){
+        return $this -> dp_url;
     }
 
     function get_permission(){

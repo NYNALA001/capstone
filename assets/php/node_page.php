@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>CAIR - Nodes</title>
-<?php include 'assets/php/session.php'?>
-<?php include 'assets/php/dependencies.php'?>
-</head>
-<body>
-	<?php include './assets/php/header.php';?>
-	<h1>CAIR Nodes</h1>
+<h1>CAIR Nodes</h1>
 <br>
         <?php
         $count = 0;
@@ -31,7 +22,17 @@
 		<?php endforeach;?>
 <?php if ($count==0)
     echo "No nodes available";?>
-	<?php include './assets/php/footer.php';?>
-
-</body>
-</html>
+<div id="add-node-panel">
+    <h2>Add node</h2>
+    <form action="./assets/php/server.php" method="post" id="add-node-form">
+        <label>Node name</label><br>
+        <input class="form-input" type="text" name="node_name"><br>
+        <label>Research Focus</label><br>
+        <input class="form-input" type="text" name="node_focus"><br>
+        <label>Research focus description</label><br>
+        <textarea class="form-input" name="node_description" cols="100" rows="10"></textarea><br>
+        <label>Node Thumbnail</label><br>
+        <input class="form-input" type="file" name="node_dp"><br>
+        <input type="submit" value="Create" name="create-node">
+    </form>
+</div>

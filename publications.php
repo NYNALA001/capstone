@@ -5,7 +5,7 @@ include './assets/php/session.php';
 <html lang="en">
 
 <head>
-<title>Pubs</title>
+<title>Publications</title>
 <?php include './assets/php/dependencies.php';
 ?>
 </head>

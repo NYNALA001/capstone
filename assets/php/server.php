@@ -98,17 +98,14 @@
             }
             mysqli_free_result($result);
             if (count($errors) == 0){
-                echo 'no errors<br>';
                 $options = array('cost'=>11);
                 
                 $hash = password_hash($password1, PASSWORD_BCRYPT, $options);
 
-                echo "Password hashed to $hash<br>";
                 $sql = "INSERT INTO users (`user_name`, `user_surname`, `user_email`, `user_password`, `user_permission`)
                             VALUES ('$first_name','$last_name','$email','$hash',0)";
                 mysqli_query($dbc, $sql);
                 
-                echo "inserted into db<br>";
                 
                 $_SESSION['logged_in'] = 'true';
                 $user = new Person;
@@ -123,9 +120,67 @@
         }
     }
     else if($_SESSION['logged_in']=='true'){
-        echo '<script>
-        window.location = "index.php";
-        </script>';
+        if(isset($_POST['create-node'])){
+            //creating a new node
+            $name = mysqli_real_escape_string($dbc, $_POST['node_name']);
+            $focus = mysqli_real_escape_string($dbc, $_POST['node_focus']);
+            $description = mysqli_real_escape_string($dbc, $_POST['node_description']);   
+            $profile = mysqli_real_escape_string($dbc, $_POST['node_dp']);
+            $url = 'assets/images/placeholder.jpg';
+            $time = time();
+            $sql = "INSERT INTO nodes (`node_name`, `research_focus`, `research_focus_description`, `dp_url`, `node_date`)
+            VALUES ('$name','$focus','$description','$url',$time)";
+            mysqli_query($dbc, $sql);
+     
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=node-created";
+            </script>';
+        }
+        else if(isset($_GET['delete'])){
+            //delete user
+            $email = $_GET['delete'];
+            $sql = "UPDATE `users` SET `user_permission` = 4 WHERE `user_email` = '$email'";
+            mysqli_query($dbc, $sql);
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=User-rejected";
+            </script>';
+        }else if(isset($_GET['confirm'])){
+            //confirm new CAIR member 
+            $email = $_GET['confirm'];
+            $sql = "UPDATE `users` SET `user_permission` = 1 WHERE `user_email` = '$email'";
+            mysqli_query($dbc, $sql);
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=User-accepted";
+            </script>';
+        }else if(isset($_GET['make-admin'])){
+            //confirm new CAIR member 
+            $email = $_GET['make-admin'];
+            $sql = "UPDATE `users` SET `user_permission` = 2 WHERE `user_email` = '$email'";
+            mysqli_query($dbc, $sql);
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=User-accepted";
+            </script>';
+        }else if(isset($_GET['remove-admin'])){
+            //confirm new CAIR member 
+            $email = $_GET['remove-admin'];
+            $sql = "UPDATE `users` SET `user_permission` = 1 WHERE `user_email` = '$email'";
+            mysqli_query($dbc, $sql);
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=User-accepted";
+            </script>';
+        }else if(isset($_GET['make-global-admin'])){
+            //confirm new CAIR member 
+            $email = $_GET['make-global-admin'];
+            $sql = "UPDATE `users` SET `user_permission` = 3 WHERE `user_email` = '$email'";
+            mysqli_query($dbc, $sql);
+            echo '<script>
+            window.location = "../../dashboard.php?confirm=User-accepted";
+            </script>';
+        }
+        else{            
+            echo '<script>
+            window.location = "index.php";
+            </script>';}
 
     }
 

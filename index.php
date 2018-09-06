@@ -5,7 +5,7 @@ include './assets/php/session.php';
 <html lang="en">
 
 <head>
-<title>CAIR - Research</title>
+<title>CAIR</title>
 <?php include './assets/php/dependencies.php';
 ?>
 </head>
@@ -39,6 +39,7 @@ include './assets/php/session.php';
 			</tr>
 
 			<div>
+				<button onclick="window.print()">print</button>
 				<form method="GET" action="" id="searchform">
 					<input type="text" name="search" placeholder="article name"> <input
 						type="submit" name="action" value="Search">

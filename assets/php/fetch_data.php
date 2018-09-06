@@ -4,11 +4,14 @@
     /*fetch all article data*/
     $articles = array();
     $people = array();
+    $nodes = array();
     // fetch articles from db 
     $query = "SELECT * FROM articles";  
-    $query2 = "SELECT * FROM users";  
+    $query2 = "SELECT * FROM users"; 
+    $query3 = "SELECT * FROM nodes"; 
     $articles_from_db = mysqli_query($dbc, $query);
     $people_from_db = mysqli_query($dbc, $query2);
+    $nodes_from_db = mysqli_query($dbc, $query3);
     //load articles into array
     if (isset($articles_from_db)){
         while($row = mysqli_fetch_row($articles_from_db)){
@@ -29,7 +32,17 @@
     		array_push($people, $person);
     	}
     }
+    
+    //load nodes into array
+    if (isset($nodes_from_db)){
+    	while($row = mysqli_fetch_row($nodes_from_db)){
+    		$node = new Node();
+    		// constructor is id, name, focus, description, dp_url
+    		$node->set_details($row[0],$row[1],$row[2],$row[5],$row[4]);
+    		array_push($nodes, $node);
+    	}
+    }
     //store articles in session
-    $_SESSION['people'] = serialize($people);
+    $_SESSION['people'] = serialize($nodes);
 
 ?>
