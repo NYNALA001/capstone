@@ -12,11 +12,39 @@
     $articles_from_db = mysqli_query($dbc, $query);
     $people_from_db = mysqli_query($dbc, $query2);
     $nodes_from_db = mysqli_query($dbc, $query3);
+
+
     //load articles into array
     if (isset($articles_from_db)){
         while($row = mysqli_fetch_row($articles_from_db)){
             $art = new Article();
-            $art->set_details($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
+            $tmp_authors;
+            $authors_list;
+            $count = 0;
+            if(count(explode(',',$row[2]))>1){
+                $authors_list = explode(",", $row[2]);
+                foreach ($authors_list as $email):
+                $a = new Person();
+                $a -> set_email($email);
+                if ($count == 0){
+                    $art->set_details($row[0],$row[1],$a,$row[3],$row[4],$row[5]);
+                    $count++;
+                }
+                else{
+                $art->add_author($a);}
+                endforeach;
+            }
+            else{
+                $art->set_details($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
+            }
+            // if ($row[2] != ""){
+            //     $authors_list = explode(",", $row[2]);
+            //     foreach ($authors_list as $email):
+            //       $a = new Person();
+            //       $a -> set_email($email);
+            //       $art->add_author($a);
+            //     endforeach;
+            //   }
             array_push($articles, $art);
         }
     }
@@ -32,6 +60,7 @@
     		array_push($people, $person);
     	}
     }
+    $_SESSION['people'] = serialize($people);
     
     //load nodes into array
     if (isset($nodes_from_db)){
@@ -43,6 +72,6 @@
     	}
     }
     //store articles in session
-    $_SESSION['people'] = serialize($nodes);
+    $_SESSION['nodes'] = serialize($nodes);
 
 ?>

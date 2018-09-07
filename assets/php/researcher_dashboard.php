@@ -31,15 +31,20 @@
           $count = 0;
               foreach ($articles as $article):
                 $edit = false;
-                $as = $article->get_authors();
-                foreach ($as as $t):
-                  
-                  if ($t == $user->get_email()){
-                    $edit = true;
-                  }
-                  else{
-                  }
-                endforeach;
+                $as =  $article->get_authors();
+                  foreach ($as as $t):
+                    if (!(gettype($t) === 'string')){
+                      if ($t->get_email() == $user->get_email()){
+                        $edit = true;
+                      }
+                    }
+                    else{
+                      if ($t == $user->get_email()){
+                        $edit = true;
+                      }
+                    }
+                  endforeach;
+                
                 if (!$edit)
                 continue;
                 $count++;

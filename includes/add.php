@@ -3,6 +3,7 @@
 include_once '../assets/php/session.php';
 include_once '../assets/php/connection.php';
 include_once '../assets/php/classes/article.php';
+include_once '../assets/php/classes/person.php';
 
 
 
@@ -32,7 +33,10 @@ if(isset($_POST['title'],$_POST['content'])){
     }
   }
   $article -> set_details(NULL,$newTitle, $user, $content, time(), $url);
-  
+  $person = unserialize($_POST['cair_contributor']);
+  if($person instanceof Person){
+  $article ->add_author(unserialize($_POST['cair_contributor']));}
+
   if ($_POST['author'] != ""){
     $authors_list = explode(";", $_POST['author']);
     foreach ($authors_list as $email):
@@ -53,7 +57,23 @@ if(isset($_POST['title'],$_POST['content'])){
 ?>
 <form action= "" method = "post" enctype="multipart/form-data">
       Title:<input type="text" name="title" placeholder="Title" required/><br><br>
-    Co-authors: <input type="email" name="author" placeholder="Co-authors email"/><br>
+    CAIR contributor: 
+    <select name="cair_contributor"class="form-input">
+      <option disabled selected>Select Researcher</option>
+      <?php
+        $s = unserialize($_SESSION['people']);
+        
+        foreach ($s as $a):
+          if($a->get_permission() > 0 && $a->get_permission()<3){
+          $r = $a->get_name();
+          $r .= ' '.$a->get_surname();
+          $id= serialize($a);
+        echo "<option value='$id'>$r</option>";}
+        endforeach;
+      ?>
+    </select><br>
+    Non-CAIR contributor name: 
+    <input type="text" name="author" placeholder="Co-authors email"/><br>
     <br><br>
     Abstract:<textarea rows="15" cols="20" name="content" required></textarea><br><br>
       <input type="file" name="pdf" required/><br/><br/>
