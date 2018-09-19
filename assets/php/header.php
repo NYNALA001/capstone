@@ -37,18 +37,21 @@ include_once './assets/php/session.php';
 
     ?>
 
-   
+    <!--<a href= './register.php'>Register</a>-->
     
     <!--<a href='./search.php'>Search</a>-->
     <div style="float: right">
     <?php
         if ($_SESSION['logged_in'] == 'false'){
-            echo "
+            echo "  
+        
                 <form action='login.php' method='post'>
                     <input type='email' name='email' placeholder='Email...'>
                     <input type='password' name='password' placeholder='Password...'>
                     <input type='submit' name='login' value='Login'>
                 </form>
+                
+                
             ";}
     ?>
         </div>

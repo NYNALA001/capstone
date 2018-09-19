@@ -11,24 +11,28 @@ if(isset($_GET['id'])){
     //print_r($data);
     ?>
 
+ 
+    
+
 <html>
-<head>
-<title>Home</title>
-</head>
+<div style = "background-color:#72A1D1">
+<a href="./"><div class="float-left"><img src="./assets/images/cair-logo.png" alt="CAIR logo" class="header-logo"></div></a></div>
 <body>
     
     <div class ="container">
-    <a href="index.php" id = "logo">Home</a>
-    <h4>
+    
+    <h1>
         <?php echo $data['article_title'];?>
         - <small>posted <?php echo date('l jS',$data['article_timestamp']) ?></small>
         
-        </h4>
-        <p><?php echo $data['article_content'] ?>
+        </h1>
         <br><br>
+        <p><?php echo $data['article_content'] ?>
+        <br><br><br><br>
             <a href="./<?php echo $data['article_url'];?>" target="_blank">Preview</a> 
             <a href="<?php echo $data['article_url'];?>" download>Download</a>
         </p>
+        <br><br>
 
         <a href="index.php">&larr; Back</a>
     </div>

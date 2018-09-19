@@ -2,58 +2,52 @@
 include './assets/php/session.php';
 ?>
 
-<html lang="en">
+    <html lang="en">
 
-<head>
-<title>CAIR</title>
-<?php include './assets/php/dependencies.php';
+    <head>
+        <title>CAIR</title>
+        <?php include './assets/php/dependencies.php';
 ?>
-</head>
+    </head>
 
-<body>
-	<?php include './assets/php/header.php';?>
+    <body>
+        <?php include './assets/php/header.php';?>
 
-	<br>
+            <br>
 
-	<div>
-		About Us <br> <br> The Centre for Artificial Intelligence Research
-		(CAIR) is a South African distributed Centre of Excellence that
-		conducts foundational, directed and applied research into various
-		aspects of Artificial Intelligence. CAIR has nodes at five South
-		African universities: the University of Cape Town, University of
-		KwaZulu-Natal, North-West University, University of Pretoria and
-		Stellenbosch University, and is coordinated and managed by the Meraka
-		Institute at the Council for Scientific and Industrial Research. <a
-			href="about.php">read more...</a>
+            <details>
+                <summary><a>About Us</a></summary>
+                <br>
+                <br> The Centre for Artificial Intelligence Research (CAIR) is a South African distributed Centre of Excellence that conducts foundational, directed and applied research into various aspects of Artificial Intelligence. CAIR has nodes at five South African universities: the University of Cape Town, University of KwaZulu-Natal, North-West University, University of Pretoria and Stellenbosch University, and is coordinated and managed by the Meraka Institute at the Council for Scientific and Industrial Research. <a href="about.php">read more...</a>
 
-	</div>
+            </details>
 
-	<div>
+            <div>
 
-		<br> <br>
-		<table style="width: 100%">
-			<tr>
-				<th style="text-align: left;">Publication</th>
-				<th style="text-align: left;">Date Posted</th>
-				<th style="text-align: left;"></th>
-			</tr>
+                <br>
+                <table style="width: 100%">
+                    <tr>
+                        <th style="text-align: left;">Publication</th>
+                        <th style="text-align: left;">Date Posted</th>
+                        <th style="text-align: left;"></th>
+                    </tr>
 
-			<div>
-				<button onclick="window.print()">print</button>
-				<form method="GET" action="" id="searchform">
-					<input type="text" name="search" placeholder="article name"> <input
-						type="submit" name="action" value="Search">
-				</form>
-				<form method="GET" action="" id="searchform">
+                    <div>
+                        <!--<button onclick="window.print()">print</button>-->
+                        <form method="GET" action="" id="searchform">
+                            <input type="text" name="search" placeholder="">
+                            <input type="submit" name="action" value="Search">
+                        </form>
+                        <!--<form method="GET" action="" id="searchform">
 					<select name="filter">
 						<option value="">Researchers</option>
 						<option value="">Nodes</option>
 						<option value="">Publication</option>
 
 					</select>
-				</form>
+				</form>-->
 
-				<?php
+                        <?php
 				$searchcounter = 0;
 				if(isset($_GET['search'])){
 					$search = $_GET['search'];
@@ -64,82 +58,85 @@ include './assets/php/session.php';
 							if(strpos(strtolower($article->get_title()),strtolower($search)) !== false){
 								$searchcounter++
 								?>
-				<p>
-					<?php echo $article->get_title();?>
-				</p>
+                            <p>
+                                <?php echo $article->get_title();?>
+                            </p>
 
-				<?php }
+                            <?php }
 
 						}
           if($searchcounter==0){ ?>
-				<br>
-				<p>
-					<?php echo "No results found";?>
-				</p>
-				<?php }
+                                <br>
+                                <p>
+                                    <?php echo "No results found";?>
+                                </p>
+                                <?php }
 					}
 
            if(strlen($search) ==0){ ?>
-				<br>
-				<p>
-					<?php echo "No input was inserted";?>
-				</p>
-				<?php }
+                                    <br>
+                                    <p>
+                                        <?php echo "No input was inserted";?>
+                                    </p>
+                                    <?php }
 
 				}
 				?>
 
-			</div>
+                    </div>
 
-			<br>
-			<br>
-			<br>
-			<?php 
+                    <br>
+                    <br>
+                    <?php 
 			$count = 0;
 			foreach ($articles as $article):
 			?>
-			<tr>
+                        <tr>
 
-				<td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?>
+                            <td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?>
 				</a></td>
-				<td><small><?php echo date("Y-m-d",$article->get_date());?> </small>
-					<?php $count++;	if ($count >= 5) break;?>
-				</td>
-			</tr>
+                            <td><small><?php echo date("Y-m-d",$article->get_date());?> </small>
+                                <?php $count++;	if ($count >= 5) break;?>
+                            </td>
+                        </tr>
 
-			<?php endforeach;?>
+                        <?php endforeach;?>
 
-		</table>
+                </table>
 
-		<a href="publications.php">see more...</a> 
-		
-		<br> <br> 
-		
-		CAIR Members 
-		
-		<br>
-		<?php 
+                <small><a href="publications.php">see more...</a></small>
+
+                <br>
+                <br>
+                <br>
+                <br> CAIR Members
+
+                <br>
+                <?php 
 
 		$count = 0;
 		foreach ($people as $person):
 		?>
-		<tr>
-			<td><?php
+                    <tr>
+                        <td>
+                            <?php
 			if ($count < 5){
 				$name = $person->get_name();
 				$surname = $person->get_surname();
 				if (!($name == "admin")) echo $name." ".$surname;
 			}
-			?> <br>
-			</td>
-		</tr>
+			?>
+                                <br>
+                        </td>
+                    </tr>
 
-		<?php endforeach;?>
-		<a href="people.php">see more...</a> <br> <br>
+                    <?php endforeach;?>
+                        <small><a href="people.php">see more...</a></small>
+                        <br>
+                        <br>
 
+                        <?php include './assets/php/footer.php';?>
 
-		<?php include './assets/php/footer.php';?>
+    </body>
 
-</body>
-
-</html>
+    </html>

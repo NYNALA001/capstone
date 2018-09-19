@@ -55,6 +55,13 @@ if(isset($_POST['title'],$_POST['content'])){
   header('location: ../dashboard.php');
 }
 ?>
+
+<div style = "background-color:#72A1D1">
+<a href="./"><div class="float-left"><img src="../assets/images/cair-logo.png" alt="CAIR logo" class="header-logo"></div></a></div>
+
+<br><br>
+
+
 <form action= "" method = "post" enctype="multipart/form-data">
       Title:<input type="text" name="title" placeholder="Title" required/><br><br>
     CAIR contributor: 

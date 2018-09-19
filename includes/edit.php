@@ -56,6 +56,10 @@ if(isset($_POST['submit_edit'])){
 header('location: ../dashboard.php');
 }
 ?>
+<div style = "background-color:#72A1D1">
+<a href="./"><div class="float-left"><img src="../assets/images/cair-logo.png" alt="CAIR logo" class="header-logo"></div></a></div>
+
+<br><br>
 <form action= "" method = "post" enctype="multipart/form-data">
       Title:<input required type="text" name="title" value="<?php echo $data['article_title']; ?>"/><br><br><br>
     Abstract:<textarea reuired rows="15" cols="20" name="content"><?php echo htmlentities($data['article_content']); ?></textarea><br><br>
