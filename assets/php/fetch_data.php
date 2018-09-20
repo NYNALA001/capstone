@@ -1,6 +1,7 @@
 <?php
     include './assets/php/connection.php';
     include_once './assets/php/session.php';
+    include_once './assets/php/methods.php';
     /*fetch all article data*/
     $articles = array();
     $people = array();

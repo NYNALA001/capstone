@@ -14,8 +14,8 @@
                         $url =$person->get_dp_url();
                         $name =$person->get_name();
                         $surname = $person->get_surname();
-                        $location = 'test';
-                        $r_group = 'none';
+                        $location = 'None';
+                        $r_group = 'None';
 
                         $node_id = $person->get_node_id();
             
@@ -53,9 +53,10 @@
                             $permission = $person-> get_permission();
                             $url =$person->get_dp_url();
                             $name =$person->get_name();
+                            $email =$person->get_email();
                             $surname = $person->get_surname();
-                            $location = 'test';
-                            $r_group = 'none';
+                            $location = 'None';
+                            $r_group = 'None';
             
                             $node_id = $person->get_node_id();
                 
@@ -110,9 +111,9 @@
             $id = $user->get_node_id();
 
             // $nodes = unserialize($_SESSION['nodes']);
-            $researchers = '';
-            $node_focus = '';
-            $location = '';
+            $researchers = 'None';
+            $node_focus = 'None';
+            $location = 'None';
 
             foreach ($nodes as $tm):
                 $na = $tm->get_name();
