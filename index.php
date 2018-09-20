@@ -11,6 +11,7 @@ include './assets/php/session.php';
     </head>
 
     <body>
+        <div class = "container">
         <?php include './assets/php/header.php';?>
 
             <br>
@@ -28,6 +29,7 @@ include './assets/php/session.php';
                 <table style="width: 100%">
                     <tr>
                         <th style="text-align: left;">Publication</th>
+                        <th style="text-align: left;">Author</th>
                         <th style="text-align: left;">Date Posted</th>
                         <th style="text-align: left;"></th>
                     </tr>
@@ -59,12 +61,18 @@ include './assets/php/session.php';
 								$searchcounter++
 								?>
                             <p>
-                                <?php echo $article->get_title();?>
+                                <a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title();?></a>
                             </p>
 
                             <?php }
 
 						}
+                        
+                        
+
+		
+                        
+                        
           if($searchcounter==0){ ?>
                                 <br>
                                 <p>
@@ -95,6 +103,18 @@ include './assets/php/session.php';
 
                             <td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?>
 				</a></td>
+                            <td> <?php 
+                                
+                                //echo $article->get_authors();
+                               // $withComma = implode(",", $article->get_authors());
+
+                               //echo $withComma;
+                                
+                            
+                                
+                                ?></td>
+                            
+                            
                             <td><small><?php echo date("Y-m-d",$article->get_date());?> </small>
                                 <?php $count++;	if ($count >= 5) break;?>
                             </td>
@@ -109,33 +129,12 @@ include './assets/php/session.php';
                 <br>
                 <br>
                 <br>
-                <br> CAIR Members
-
-                <br>
-                <?php 
-
-		$count = 0;
-		foreach ($people as $person):
-		?>
-                    <tr>
-                        <td>
-                            <?php
-			if ($count < 5){
-				$name = $person->get_name();
-				$surname = $person->get_surname();
-				if (!($name == "admin")) echo $name." ".$surname;
-			}
-			?>
-                                <br>
-                        </td>
-                    </tr>
-
-                    <?php endforeach;?>
-                        <small><a href="people.php">see more...</a></small>
-                        <br>
-                        <br>
+                </div>
+            
+        </div>
 
                         <?php include './assets/php/footer.php';?>
+               
 
     </body>
 
