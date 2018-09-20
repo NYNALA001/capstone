@@ -8,7 +8,8 @@
 </head>
 <body>
 	<?php include './assets/php/header.php';?>
-
+<u><b>About us</b></u>
+    <br>
 	The Centre for Artificial Intelligence Research (CAIR) is a South
 	African distributed Centre of Excellence that conducts foundational,
 	directed and applied research into various aspects of Artificial
@@ -32,6 +33,7 @@
 	Institute, as an implementing body of the RDI, established CAIR as a
 	National Centre of Excellence in Artificial Intelligence Research.
 <br><br>
+    <u><b>Contact us</b></u>
     <p><div class="content">
     <form class="user-info-from-cookie contact-form" action="/contact" method="post" id="contact-site-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
   <label for="edit-name">Your name <span class="form-required" title="This field is required.">*</span></label>

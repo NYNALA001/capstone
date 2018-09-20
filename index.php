@@ -11,6 +11,7 @@ include './assets/php/session.php';
     </head>
 
     <body>
+        <div class = "container">
         <?php include './assets/php/header.php';?>
 
             <br>
@@ -60,12 +61,18 @@ include './assets/php/session.php';
 								$searchcounter++
 								?>
                             <p>
-                                <?php echo $article->get_title();?>
+                                <a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title();?></a>
                             </p>
 
                             <?php }
 
 						}
+                        
+                        
+
+		
+                        
+                        
           if($searchcounter==0){ ?>
                                 <br>
                                 <p>
@@ -99,9 +106,9 @@ include './assets/php/session.php';
                             <td> <?php 
                                 
                                 //echo $article->get_authors();
-                                $withComma = implode(",", $article->get_authors());
+                               // $withComma = implode(",", $article->get_authors());
 
-                               echo $withComma;
+                               //echo $withComma;
                                 
                             
                                 
@@ -122,9 +129,12 @@ include './assets/php/session.php';
                 <br>
                 <br>
                 <br>
-               
+                </div>
+            
+        </div>
 
                         <?php include './assets/php/footer.php';?>
+               
 
     </body>
 
