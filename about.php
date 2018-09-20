@@ -31,7 +31,7 @@
 	an enhanced quality of life for all South Africans. The CSIR Meraka
 	Institute, as an implementing body of the RDI, established CAIR as a
 	National Centre of Excellence in Artificial Intelligence Research.
-    
+<br><br>
     <p><div class="content">
     <form class="user-info-from-cookie contact-form" action="/contact" method="post" id="contact-site-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
   <label for="edit-name">Your name <span class="form-required" title="This field is required.">*</span></label>

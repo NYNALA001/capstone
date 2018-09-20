@@ -28,6 +28,7 @@ include './assets/php/session.php';
                 <table style="width: 100%">
                     <tr>
                         <th style="text-align: left;">Publication</th>
+                        <th style="text-align: left;">Author</th>
                         <th style="text-align: left;">Date Posted</th>
                         <th style="text-align: left;"></th>
                     </tr>
@@ -95,6 +96,18 @@ include './assets/php/session.php';
 
                             <td><a href="article.php?id=<?php echo $article->get_id();?>"><?php echo $article->get_title(); ?>
 				</a></td>
+                            <td> <?php 
+                                
+                                //echo $article->get_authors();
+                                $withComma = implode(",", $article->get_authors());
+
+                               echo $withComma;
+                                
+                            
+                                
+                                ?></td>
+                            
+                            
                             <td><small><?php echo date("Y-m-d",$article->get_date());?> </small>
                                 <?php $count++;	if ($count >= 5) break;?>
                             </td>
