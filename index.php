@@ -109,31 +109,7 @@ include './assets/php/session.php';
                 <br>
                 <br>
                 <br>
-                <br> CAIR Members
-
-                <br>
-                <?php 
-
-		$count = 0;
-		foreach ($people as $person):
-		?>
-                    <tr>
-                        <td>
-                            <?php
-			if ($count < 5){
-				$name = $person->get_name();
-				$surname = $person->get_surname();
-				if (!($name == "admin")) echo $name." ".$surname;
-			}
-			?>
-                                <br>
-                        </td>
-                    </tr>
-
-                    <?php endforeach;?>
-                        <small><a href="people.php">see more...</a></small>
-                        <br>
-                        <br>
+               
 
                         <?php include './assets/php/footer.php';?>
 
