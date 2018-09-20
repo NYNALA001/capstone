@@ -77,7 +77,9 @@
       </div>
     
     <div id="researchers-panel" class="dashboard-content hide">
-        <h2>Node Researchers</h2>
+       <?php $_GET['perm']=2;
+        include './assets/php/people_page.php';
+        ?>
       </div>
       
       <div id="profile-panel" class="dashboard-content hide">

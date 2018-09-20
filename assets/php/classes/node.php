@@ -6,7 +6,7 @@ class Node{
     var $description;
     var $dp_url;
 
-    var $researchers;
+    public $researchers;
     var $admins;
     var $articles;
 
@@ -18,9 +18,9 @@ class Node{
         $this -> description = 'undefined';
         $this -> dp_url = 'undefined';
 
-        $this -> researchers = array();
-        $this -> admins = array();
-        $this -> articles = array();
+        $this->researchers = array();
+        $this->admins = array();
+        $this->articles = array();
     }
     /*SETTERS*/
     function set_details($id, $name, $focus, $description, $url ){
@@ -48,15 +48,15 @@ class Node{
     }
 
     function set_admin($admin){
-        $this->admins = new_array();
+        $this->admins = array();
         array_push($this->admins, $admin);
     }
     function set_researcher($researcher){
-        $this->researchers = new_array();
+        $this->researchers = array();
         array_push($this->researchers, $researcher);
     }
     function set_article($article){
-        $this->articles = new_array();
+        $this->articles = array();
         array_push($this->articles, $article);
     }
 
@@ -80,7 +80,16 @@ class Node{
         return $this -> admins;
     }
     function get_researchers(){
-        return $this -> researchers;
+        return $this ->researchers;
+    
+    }
+    function count_researchers(){
+        $f = count($this ->researchers);
+        return $f;
+    
+    }
+    function get_articles(){
+        return $this -> articles;
     }
 
     /*functions*/
@@ -90,7 +99,14 @@ class Node{
     }
     
     function add_researcher($researcher){
-        array_push($this->researchers, $researcher);
+        $res = &$this->researchers;
+        array_push($res, $researcher);
     }
+    function add_article($article){
+        $articles = &$this->articles;
+        array_push($this->articles, $article);
+    }
+
+    
 }
 ?>

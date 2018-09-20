@@ -5,8 +5,8 @@
     <?php include './assets/php/session.php';?>
 </head>
 <body>
-    <?php include './assets/php/header.php';?>
-    <?php if($user_permission <1){
+    <?php include './assets/php/header.php';
+     if($user_permission <1){
         echo '<script>
         window.location = "index.php";
         </script>';

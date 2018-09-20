@@ -47,7 +47,7 @@
                             $user = new Person;
                         }
 
-                        $user -> set_details($array['user_name'], $array['user_surname'], $array['user_email'], $array['user_permission'], '');
+                        $user -> set_details($array['user_name'], $array['user_surname'], $array['user_email'], $array['user_permission'], $array['node_id']);
                         $_SESSION['user'] = serialize($user);
                         $array="";
                         
@@ -68,10 +68,13 @@
         if (isset($_POST['register'])){
             $first_name = mysqli_real_escape_string($dbc, $_POST['first_name']);
             $last_name = mysqli_real_escape_string($dbc, $_POST['last_name']);
-            $email = mysqli_real_escape_string($dbc, $_POST['email']);   
+            $email = mysqli_real_escape_string($dbc, $_POST['email']);
             $password1 = mysqli_real_escape_string($dbc, $_POST['password']);   
             $password2 = mysqli_real_escape_string($dbc, $_POST['password_confirmation']);   
-            
+            $node = 'null';
+            if (isset($_POST['node'])){
+                $node = mysqli_real_escape_string($dbc, $_POST['node']);
+            }
             if (empty($first_name)){
                 array_push($errors, "First name is required");
             }
@@ -80,6 +83,9 @@
             }
             if (empty($email)){
                 array_push($errors, "Email is required");
+            }
+            if (empty($node) || $node=='null'){
+                array_push($errors, "Node is required");
             }
             if (empty($password1)){
                 array_push($errors, "Password is required");
@@ -102,14 +108,14 @@
                 
                 $hash = password_hash($password1, PASSWORD_BCRYPT, $options);
 
-                $sql = "INSERT INTO users (`user_name`, `user_surname`, `user_email`, `user_password`, `user_permission`)
-                            VALUES ('$first_name','$last_name','$email','$hash',0)";
+                $sql = "INSERT INTO users (`user_name`, `user_surname`, `user_email`, `user_password`, `user_permission`, `node_id`)
+                            VALUES ('$first_name','$last_name','$email','$hash',0, '$node')";
                 mysqli_query($dbc, $sql);
                 
                 
                 $_SESSION['logged_in'] = 'true';
                 $user = new Person;
-                $user -> set_details($first_name, $last_name, $email, 0, '');
+                $user -> set_details($first_name, $last_name, $email, 0, $node);
                 $_SESSION['user'] = serialize($user);
 
                 echo '<script>

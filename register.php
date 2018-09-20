@@ -23,6 +23,20 @@
         <input type="text" name="first_name" autofocus value=<?php if(isset($_POST['first_name'])) echo '"'.$_POST['first_name'].'"';?>><br>
         <label>Last name</label><br>
         <input type="text" name="last_name" autofocus value=<?php if(isset($_POST['last_name'])) echo '"'.$_POST['last_name'].'"';?>><br>
+        <label>Node</label><br>
+        <select name="node" id="">
+            <option value="null" disabled selected>Select Node</option>
+            <?php
+                $s = unserialize($_SESSION['nodes']);
+                
+                foreach ($s as $a):
+                
+                $r = $a->get_name();
+                $id= $a ->get_id();
+                echo "<option value='$id'>$r</option>";
+                endforeach;
+            ?>
+        </select><br/>
         <label>Email</label><br>
         <input type="email" name="email" value=<?php if(isset($_POST['email'])) echo '"'.$_POST['email'].'"';?>><br>
         <label>Password</label><br>
