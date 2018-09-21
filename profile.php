@@ -9,6 +9,7 @@
 <body>
     <?php include './assets/php/header.php';?>
 
+<div class="container">
         <?php if($user_permission <0){
         echo '<script>
         window.location = "index.php";
@@ -54,6 +55,7 @@
     ?>
  <br>
  <br>
+ </div>
  <?php include './assets/php/footer.php';?>
 </body>
 

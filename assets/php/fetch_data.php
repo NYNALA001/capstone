@@ -52,7 +52,7 @@
         foreach ($nodes as $n):
             $c = count($n->get_researchers());
             $nam_3 = $n->get_name();
-            echo "<script>console.log('$nam_3 has $c researchers');</script>";
+            //echo "<script>console.log('$nam_3 has $c researchers');</script>";
         endforeach;
     }
     $_SESSION['people'] = serialize($people);
@@ -65,27 +65,36 @@
             $a = new Person();
             $authors_list;
             $count = 0;
-            if(count(explode(',',$row[2]))>1){
+            if(count(explode(',',$row[2]))>0){
                 $authors_list = explode(",", $row[2]);
                 foreach ($authors_list as $email):
-                    foreach($people as $p):
-                        if ($p->get_email() == $email){
-                            $a = $p;
-                        }
+                    $co = count($authors_list);
+                    //echo "<script>console.log('Person for article with email $email. Total is $co')</script>";
+                    foreach($people as $per):
+                        $co = count($people);
+                        $email_2 = $per->get_email();
+                        //echo "<script>console.log('Person for article with email $email vs $email_2. Total is $co')</script>";
+                        //echo "<script>console.log('Person for article with email $email. Total is $co')</script>";
+                        if ($per->get_email() == $email){
+                            $a = $per;
+                            
+                            //echo "<script>console.log('Person for article with email $name_4')</script>";
                         break;
+                        }
                     endforeach;
-                if ($count == 0){
-                    $art->set_details($row[0],$row[1],$a,$row[3],$row[4],$row[5]);
-                    $count++;
-                }
-                else{
-                $art->add_author($a);}
+                    if ($count == 0){
+                        $art->set_details($row[0],$row[1],$a,$row[3],$row[4],$row[5]);
+                        $count++;
+                    }
+                    else{
+                    $art->add_author($a);}
                 endforeach;
             }
             else{
                 foreach($people as $p):
                     if ($p->get_email() == $row[2]){
                         $a = $p;
+                        //echo "<script>console.log('Person for article with email $name_4')</script>";
                     }
                     break;
                 endforeach;
@@ -100,16 +109,45 @@
             //     endforeach;
             //   }
             array_push($articles, $art);
-
+        }
             //add articles to respective nodes
+                $re = count($articles);
+                //echo "<script>console.log('$re total articles');</script>";
             foreach ($articles as $arti):
                 $writers = $arti->get_authors();
+
+                //$re = count($writers);
+                //echo "<script>console.log('$re total writers');</script>";
                 foreach($writers as $another):
+
                     $node_id_2 = $another->get_node_id();
+                    $name_4 = $another->get_name();
+                    //$re = count($nodes);
+                    
+                    foreach($nodes as $na):
+
+                        $node_id_3 = $na->get_id();
+                        //echo "<script>console.log('$node_id_2 vs $node_id_3');</script>";
+                        if($node_id_3 == $node_id_2){
+                            //echo "<script>console.log('Article found for author in node $node_id_3.');</script>";
+                            $na->add_article($arti);
+                            
+                            //echo "<script>console.log('Article added to node $node_id_3.');</script>";
+                            $found = 1;
+                            //echo "<script>console.log('$re');</script>";
+                            break;
+                        }
+                        
+                        //echo "<script>console.log('Not found');</script>";
+                    endforeach;
+
                 endforeach;
+                
             endforeach;
-        }
+        
     }
+
+    
     //store articles in session
     $_SESSION['articles'] = serialize($articles);
     

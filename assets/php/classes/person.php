@@ -120,6 +120,10 @@ class Node_Administrator extends Researcher{
 
         return $report;
     }
+    function get_id(){
+        
+        parent::get_id();
+    }
 }
 class Global_Administrator extends Person{
     function __construct(){

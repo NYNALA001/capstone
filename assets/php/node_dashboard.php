@@ -4,7 +4,7 @@
       <div class="menu-heading">MANAGE NODE</div>
       <div class="menu-item" onclick="change_view('node-publications');">Publications</div>
       <div class="menu-item" onclick="change_view('researchers');">Researchers</div>
-      <div class="menu-item" onclick="change_view('reports');">Reports</div>
+      <!--<div class="menu-item" onclick="change_view('reports');">Reports</div>-->
       <div class="menu-heading">MY PROFILE</div>
       <div class="menu-item" onclick="change_view('publications');">Publications</div>
       <div class="menu-item" onclick="change_view('profile');">Edit Profile</div>
@@ -74,6 +74,21 @@
     
     <div id="node-publications-panel" class="dashboard-content hide">
         <h2>Node Publications</h2>
+        <?php
+          foreach ($nodes as $node):
+            $user = unserialize($_SESSION['user']);
+            $id = $user->get_node_id();
+            if($id==$node->get_id()){
+              $articles = $node->get_articles();
+              foreach($articles as $a):
+                $title = $a->get_title();
+                $id = $a->get_id();
+                echo "<div><a href='article.php?id=$id'>$title</a></div>";
+             endforeach;
+              
+          }
+          endforeach;
+        ?>
       </div>
     
     <div id="researchers-panel" class="dashboard-content hide">

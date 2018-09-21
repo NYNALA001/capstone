@@ -5,7 +5,7 @@
       <div class="menu-item" onclick="change_view('publications');">Publications</div>
       <div class="menu-item" onclick="change_view('users');">People</div>
       <div class="menu-item" onclick="change_view('nodes');">Nodes</div>
-      <div class="menu-item" onclick="change_view('reports');">Reports</div>
+      <!--<div class="menu-item" onclick="change_view('reports');">Reports</div>-->
       <div class="menu-item" onclick="change_view('new-users');">New Users <?php $new_users = count_new_users($people);if ($new_users !=0 ){echo " ($new_users)";}
         ?></div>
       <div class="menu-heading">MY PROFILE</div>

@@ -66,11 +66,16 @@ input{
     position: relative;
     height: 150px;
     width: 100%;
+    color: white;
     background-color: rgb(62, 77, 83);
 }
 .container{
     position: relative;
-    height: calc(100% - 150px);
+    padding-left: 100px;
+    padding-right: 100px;
+    width: calc(100% - 200px);
+    min-height: calc(100% - 150px - 50px);
+    padding-bottom: 50px;
 }
 #dashboard-navigation-panel{
     width: 270px;

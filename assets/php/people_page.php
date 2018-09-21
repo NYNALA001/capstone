@@ -51,7 +51,7 @@
                         }
                     }else if (($person-> get_permission() > 0) && ($person-> get_permission() <4)){
                             $permission = $person-> get_permission();
-                            $url =$person->get_dp_url();
+                            $url = './assets/images/user.png';
                             $name =$person->get_name();
                             $email =$person->get_email();
                             $surname = $person->get_surname();

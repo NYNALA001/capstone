@@ -13,6 +13,7 @@ include './assets/php/session.php';
     <body>
         <?php include './assets/php/header.php';?>
 
+<div class="container">
             <div>
 
                 <br>
@@ -91,7 +92,7 @@ include './assets/php/session.php';
                 </table>
                 <br>
                 <br>
-
+</div>
                 <?php include './assets/php/footer.php';?>
 
     </body>

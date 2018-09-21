@@ -10,6 +10,7 @@
 <body>
 	<?php include './assets/php/header.php';?>
 
+<div class="container">
 		 <h1>CAIR Members</h1>
 <br>
         <?php
@@ -57,6 +58,8 @@
 		 endforeach;?>
 <?php if ($count==0)
     echo "No nodes available";?>
+
+	</div>
 	<?php include './assets/php/footer.php';?>
 
 </body>
