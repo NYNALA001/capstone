@@ -5,6 +5,7 @@ class Person{
     var $email;
     var $permission;
     var $dp_url;
+    var $node_id;
 
     /*CONSTRUCTOR*/
     function __construct(){
@@ -13,14 +14,16 @@ class Person{
         $this->email = "";
         $this->dp_url = "";
         $this->permission = -1;
+        $this->node_id = 0;
     }
     
 
     /*SETTERS*/
-    function set_details($user_name, $user_surname, $user_email, $user_permission, $user_node){
+    function set_details($user_name, $user_surname, $user_email, $user_permission, $user_node_id){
         $this->name = $user_name;
         $this->surname = $user_surname;
         $this->email = $user_email;
+        $this->node_id = $user_node_id;
         $this->permission = $user_permission;
     }
     function set_name($name){
@@ -36,6 +39,9 @@ class Person{
     }
     function set_dp_url($url){
         $this -> dp_url = $dp_url;
+    }
+    function set_node_id($node_id){
+        $this -> node_id = $node_id;
     }
 
     function set_permission($permission){
@@ -53,6 +59,10 @@ class Person{
 
     function get_email(){
         return $this -> email;
+    }
+
+    function get_node_id(){
+        return $this -> node_id;
     }
 
     function get_dp_url(){

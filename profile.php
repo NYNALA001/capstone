@@ -24,7 +24,22 @@
                 <?php echo $user->get_surname();?>
                     <br> Email:
                     <?php echo $user->get_email();?>
-                        <br>
+                        <br>Node: <?php 
+    $id = $user->get_node_id();
+    
+    $nodes = unserialize($_SESSION['nodes']);
+                
+    foreach ($nodes as $tmp):
+    
+    $r = $tmp->get_name();
+    $node_id = $tmp ->get_id();
+    if ($node_id == $id){
+        echo $r;
+        break;
+    }
+    endforeach;
+    
+    ?><br>
                         <br>
                         <?php if($user_permission == 4){
         echo "<h2>MEMBERSHIP REJECTED</h2> Your application to become a CAIR member has been rejected. Please ensure that the necessary procedures have been followed before applying to become a CAIR member. To request new membership, please contact the your node administrator.";
