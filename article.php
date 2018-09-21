@@ -34,7 +34,7 @@ if(isset($_GET['id'])){
         </p>
         <br><br>
 
-        <a href="index.php">&larr; Back</a>
+        <a href="./">&larr; Back</a>
     </div>
 </body>
 </html>
