@@ -29,7 +29,7 @@ include './assets/php/session.php';
                 <table style="width: 100%">
                     <tr>
                         <th style="text-align: left;">Publication</th>
-                        <th style="text-align: left;">Author</th>
+                        <th style="text-align: left;">PDF</th>
                         <th style="text-align: left;">Date Posted</th>
                         <th style="text-align: left;"></th>
                     </tr>
@@ -105,7 +105,9 @@ include './assets/php/session.php';
 				</a></td>
                             <td> <?php 
                                 
-                                //echo $article->get_authors();
+                            $l = $article->get_link($article);
+                                $t = $article->get_title();
+                                echo "<a href='$l'>view PDF</a>"
                                // $withComma = implode(",", $article->get_authors());
 
                                //echo $withComma;
